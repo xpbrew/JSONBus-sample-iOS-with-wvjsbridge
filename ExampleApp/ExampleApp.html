@@ -31,12 +31,14 @@
 			responseCallback(data)
 		})
 
+/**
 		bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
 			log('ObjC called testJavascriptHandler with', data)
 			var responseData = { 'Javascript Says':'Right back atcha!' }
 			log('JS responding with', responseData)
 			responseCallback(responseData)
 		})
+**/
 
 		bridge.registerHandler('datepickercb', function(data, responseCallback) {
 			log('datepicker callback', data)
@@ -53,6 +55,7 @@
 			})
 		}
 
+/**
 		var button = document.getElementById('buttons').appendChild(document.createElement('button'))
 		button.innerHTML = 'Send message to ObjC'
 		button.ontouchstart = function(e) {
@@ -75,6 +78,7 @@
 				log('JS got response', response)
 			})
 		}
+**/
 	}
 	</script>
 	<div id='buttons'></div> <div id='log'></div>

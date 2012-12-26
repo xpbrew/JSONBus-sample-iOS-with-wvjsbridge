@@ -40,8 +40,6 @@
 #pragma mark - Public Methods
 
 //- (CDVPlugin *)initWithWebView:(UIWebView *)theWebView
-//- (void)initWithWebView:(UIWebView *)theWebView
-//- (DatePicker *)initWithWebView:(UIWebView *)theWebView
 //- (DatePicker *)initWithWebView:(UIWebView *)theWebView
 - (DatePicker *)initWithWebView:(UIWebView *)theWebView andBridge:(WebViewJavascriptBridge *)bridge;
 {
@@ -80,8 +78,6 @@
 }
 
 - (void)dismissActionSheet:(id)sender {
-	//[self.jsBridge send:@"date picker closed"];
-	//[self.jsBridge callHandler:@"datepickercb" data:[NSDictionary dictionaryWithObject:@"v" forKey:@"date"]];
 	[self.jsBridge callHandler:@"datepickercb" data:[NSDictionary dictionaryWithObject:
 		[NSString stringWithFormat:@"%i", (int)[self.datePicker.date timeIntervalSince1970]] forKey:@"date"]];
 	[self.datePickerSheet dismissWithClickedButtonIndex:0 animated:YES];
@@ -116,13 +112,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
 	//NSString* jsCallback = [NSString stringWithFormat:@"window.plugins.datePicker._dateSelected(\"%i\");", (int)[self.datePicker.date timeIntervalSince1970]];
-	//[super writeJavascript:jsCallback];
 	//[self.jsBridge send:@"date picker closed"];
-	//[self.jsBridge send:jsCallback];
-	//[self.jsBridge callHandler:@"testJavascriptHandler" data:jsCallback];
-	//[self.jsBridge callHandler:@"testJavascriptHandler" data:jsCallback responseCallback:^(id response) {
-	//	NSLog(@"testJavascriptHandler responded: %@", response);
-	//}];
 
 }
 

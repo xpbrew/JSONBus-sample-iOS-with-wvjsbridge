@@ -16,11 +16,13 @@
         NSLog(@"ObjC received message from JS: %@", data);
         responseCallback(@"Response for message from ObjC");
     }];
-    
+
+/**
     [_bridge registerHandler:@"testObjcCallback" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"testObjcCallback called: %@", data);
         responseCallback(@"Response from testObjcCallback");
     }];
+**/
 
     [_bridge send:@"A string sent from ObjC before Webview has loaded." responseCallback:^(id responseData) {
         NSLog(@"objc got response! %@", responseData);
@@ -30,10 +32,9 @@
     [self renderButtons:webView];
     [self loadExamplePage:webView];
 
+/**
     [_bridge send:@"A string sent from ObjC after Webview has loaded."];
-
-  //self.datePicker = [[DatePicker alloc] initWithWebView: webView andBridge:_bridge];
-  //[self.datePicker show: [[NSMutableArray alloc] init] withDict: [[NSMutableDictionary alloc] init]];
+**/
 
     [_bridge registerHandler:@"showdatepicker" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSLog(@"showdatepicker called: %@", data);
